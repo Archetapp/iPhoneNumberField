@@ -280,10 +280,12 @@ public struct iPhoneNumberField: UIViewRepresentable {
         }
 
         public func textFieldDidBeginEditing(_ textField: UITextField) {
+            isFirstResponder.wrappedValue = true
             onBeginEditing(textField as! PhoneNumberTextField)
         }
 
         public func textFieldDidEndEditing(_ textField: UITextField) {
+            isFirstResponder.wrappedValue = false
             onEndEditing(textField as! PhoneNumberTextField)
         }
         
